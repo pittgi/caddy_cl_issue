@@ -1,0 +1,31 @@
+sudo ./caddy run --config ./CaddyfileHttp1 
+2025/02/17 11:00:50.198	INFO	using config from file	{"file": "./CaddyfileHttp1"}
+2025/02/17 11:00:50.199	INFO	adapted config to JSON	{"adapter": "caddyfile"}
+2025/02/17 11:00:50.199	WARN	Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies	{"adapter": "caddyfile", "file": "./CaddyfileHttp1", "line": 2}
+2025/02/17 11:00:50.200	INFO	admin	admin endpoint started	{"address": "localhost:2019", "enforce_origin": false, "origins": ["//[::1]:2019", "//127.0.0.1:2019", "//localhost:2019"]}
+2025/02/17 11:00:50.200	INFO	http.auto_https	server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS	{"server_name": "srv0", "https_port": 443}
+2025/02/17 11:00:50.200	INFO	http.auto_https	enabling automatic HTTP->HTTPS redirects	{"server_name": "srv0"}
+2025/02/17 11:00:50.200	INFO	tls.cache.maintenance	started background certificate maintenance	{"cache": "0xc000625b00"}
+2025/02/17 11:00:50.200	DEBUG	http.auto_https	adjusted config	{"tls": {"automation":{"policies":[{"subjects":["localhost"]},{}]}}, "http": {"servers":{"remaining_auto_https_redirects":{"listen":[":80"],"routes":[{},{}]},"srv0":{"listen":[":443"],"routes":[{"handle":[{"handler":"subroute","routes":[{"handle":[{"handler":"reverse_proxy","upstreams":[{"dial":"localhost:8080"}]}]}]}],"terminal":true}],"tls_connection_policies":[{}],"automatic_https":{}}}}}
+2025/02/17 11:00:50.200	INFO	pki.ca.local	root certificate is already trusted by system	{"path": "storage:pki/authorities/local/root.crt"}
+2025/02/17 11:00:50.200	DEBUG	http	starting server loop	{"address": "[::]:443", "tls": true, "http3": false}
+2025/02/17 11:00:50.200	INFO	http	enabling HTTP/3 listener	{"addr": ":443"}
+2025/02/17 11:00:50.201	INFO	http.log	server running	{"name": "srv0", "protocols": ["h1", "h2", "h3"]}
+2025/02/17 11:00:50.201	DEBUG	http	starting server loop	{"address": "[::]:80", "tls": false, "http3": false}
+2025/02/17 11:00:50.201	WARN	http	HTTP/2 skipped because it requires TLS	{"network": "tcp", "addr": ":80"}
+2025/02/17 11:00:50.201	WARN	http	HTTP/3 skipped because it requires TLS	{"network": "tcp", "addr": ":80"}
+2025/02/17 11:00:50.201	INFO	http.log	server running	{"name": "remaining_auto_https_redirects", "protocols": ["h1", "h2", "h3"]}
+2025/02/17 11:00:50.201	INFO	http	enabling automatic TLS certificate management	{"domains": ["localhost"]}
+2025/02/17 11:00:50.201	DEBUG	tls.cache	added certificate to cache	{"subjects": ["localhost"], "expiration": "2025/02/17 22:22:38.000", "managed": true, "issuer_key": "local", "hash": "da0851a429bace3d71a9c7735e03c77ac27c1c7f13325c0630f1b98107272371", "cache_size": 1, "cache_capacity": 10000}
+2025/02/17 11:00:50.201	DEBUG	events	event	{"name": "cached_managed_cert", "id": "559dc45a-ffa8-450d-967d-b241fd89e393", "origin": "tls", "data": {"sans":["localhost"]}}
+2025/02/17 11:00:50.201	INFO	autosaved config (load with --resume flag)	{"file": "/root/.config/caddy/autosave.json"}
+2025/02/17 11:00:50.201	INFO	serving initial configuration
+2025/02/17 11:00:50.212	INFO	tls	storage cleaning happened too recently; skipping for now	{"storage": "FileStorage:/root/.local/share/caddy", "instance": "2cca84e3-ddb3-4c13-b4c6-9ae699e6bedb", "try_again": "2025/02/18 11:00:50.212", "try_again_in": 86399.999999169}
+2025/02/17 11:00:50.212	INFO	tls	finished cleaning storage units
+2025/02/17 11:01:04.798	DEBUG	events	event	{"name": "tls_get_certificate", "id": "020e1d8f-a837-487d-b2d0-fdf60b0c0d37", "origin": "tls", "data": {"client_hello":{"CipherSuites":[56026,4865,4867,4866],"ServerName":"localhost","SupportedCurves":[43690,4588,29,23,24],"SupportedPoints":null,"SignatureSchemes":[1027,2052,1025,1283,2053,1281,2054,1537,2055],"SupportedProtos":["h3"],"SupportedVersions":[2570,772],"RemoteAddr":{"IP":"127.0.0.1","Port":56249,"Zone":""},"LocalAddr":{"IP":"127.0.0.1","Port":443,"Zone":""}}}}
+2025/02/17 11:01:04.799	DEBUG	tls.handshake	choosing certificate	{"identifier": "localhost", "num_choices": 1}
+2025/02/17 11:01:04.799	DEBUG	tls.handshake	default certificate selection results	{"identifier": "localhost", "subjects": ["localhost"], "managed": true, "issuer_key": "local", "hash": "da0851a429bace3d71a9c7735e03c77ac27c1c7f13325c0630f1b98107272371"}
+2025/02/17 11:01:04.799	DEBUG	tls.handshake	matched certificate in cache	{"remote_ip": "127.0.0.1", "remote_port": "56249", "subjects": ["localhost"], "managed": true, "expiration": "2025/02/17 22:22:38.000", "hash": "da0851a429bace3d71a9c7735e03c77ac27c1c7f13325c0630f1b98107272371"}
+2025/02/17 11:01:04.801	DEBUG	http.handlers.reverse_proxy	selected upstream	{"dial": "localhost:8080", "total_upstreams": 1}
+2025/02/17 11:01:04.802	DEBUG	http.handlers.reverse_proxy	upstream roundtrip	{"upstream": "localhost:8080", "duration": 0.000739038, "request": {"remote_ip": "127.0.0.1", "remote_port": "56249", "client_ip": "127.0.0.1", "proto": "HTTP/3.0", "method": "POST", "host": "localhost:443", "uri": "/", "headers": {"Content-Length": ["2"], "Id": ["1"], "User-Agent": [""], "X-Forwarded-For": ["127.0.0.1"], "X-Forwarded-Proto": ["https"], "X-Forwarded-Host": ["localhost:443"]}, "tls": {"resumed": false, "version": 772, "cipher_suite": 4865, "proto": "h3", "server_name": "localhost"}}, "error": "readfrom tcp 127.0.0.1:60796->127.0.0.1:8080: peer sent too much data"}
+2025/02/17 11:01:04.802	ERROR	http.log.error	readfrom tcp 127.0.0.1:60796->127.0.0.1:8080: peer sent too much data	{"request": {"remote_ip": "127.0.0.1", "remote_port": "56249", "client_ip": "127.0.0.1", "proto": "HTTP/3.0", "method": "POST", "host": "localhost:443", "uri": "/", "headers": {"Content-Length": ["2"], "Id": ["1"]}, "tls": {"resumed": false, "version": 772, "cipher_suite": 4865, "proto": "h3", "server_name": "localhost"}}, "duration": 0.000999867, "status": 502, "err_id": "44hu7b14f", "err_trace": "reverseproxy.statusError (reverseproxy.go:1373)"}
