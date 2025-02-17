@@ -14,12 +14,12 @@ Credits to @lpisu98 for helping to investigate this issue.
  - php: `php -S localhost:8080`
  - flask: `python3 flask_server.py`
  - h2: `python3 h2_server.py`
- - caddy: `sudo ./traefik run`
+ - caddy: `sudo ./caddy run --config ./CaddyfileHttp2`
  - attacker: `python3 attacker.py`
 
 # Setup Wireshark
 
- 1. Edit attacker.py PATH_TO_TLS_SECRECTS (example "~/keys.log")
- 2. Run in terminal: `export SSLKEYLOGFILE_="/home/$USER/keys.log"`
+ 1. Edit attacker.py PATH_TO_TLS_SECRECTS (example "/home/USER/keys.log")
+ 2. Run in terminal: `export SSLKEYLOGFILE_="/home/USER/keys.log"`
  3. Run http2 server in same terminal instance
  4. Same path into Wireshark -> Edit -> Preferences -> (Left) Protocols -> TLS -> (Pre)-Master-Secret log filname
