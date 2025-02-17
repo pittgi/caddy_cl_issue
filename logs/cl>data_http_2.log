@@ -1,7 +1,7 @@
-sudo ./caddy run --config ./CaddyfileLogging 
-2025/02/17 10:54:32.407	INFO	using config from file	{"file": "./CaddyfileLogging"}
+sudo ./caddy run --config ./CaddyfileHttp2
+2025/02/17 10:54:32.407	INFO	using config from file	{"file": "./CaddyfileHttp2"}
 2025/02/17 10:54:32.408	INFO	adapted config to JSON	{"adapter": "caddyfile"}
-2025/02/17 10:54:32.408	WARN	Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies	{"adapter": "caddyfile", "file": "./CaddyfileLogging", "line": 2}
+2025/02/17 10:54:32.408	WARN	Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies	{"adapter": "caddyfile", "file": "./CaddyfileHttp2", "line": 2}
 2025/02/17 10:54:32.408	INFO	admin	admin endpoint started	{"address": "localhost:2019", "enforce_origin": false, "origins": ["//[::1]:2019", "//127.0.0.1:2019", "//localhost:2019"]}
 2025/02/17 10:54:32.408	INFO	http.auto_https	server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS	{"server_name": "srv0", "https_port": 443}
 2025/02/17 10:54:32.408	INFO	http.auto_https	enabling automatic HTTP->HTTPS redirects	{"server_name": "srv0"}
