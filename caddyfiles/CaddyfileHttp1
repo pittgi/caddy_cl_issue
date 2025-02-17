@@ -1,0 +1,7 @@
+{
+    debug
+}
+
+https://localhost:443 {
+    reverse_proxy http://localhost:8080
+}
