@@ -1,0 +1,11 @@
+{
+    debug
+}
+
+https://localhost:443 {
+    reverse_proxy https://localhost:8443 {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
