@@ -1,6 +1,7 @@
 Credits to @lpisu98 for helping to investigate this issue.
 
 Tested version of Caddy: v.2.9.1 (latest, precompiled binary)
+
 Testing enviroment: Ubuntu 24.04.2 LTS x86_64
 
 # How to replicate
