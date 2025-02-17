@@ -4,7 +4,7 @@ Credits to @lpisu98 for helping to investigate this issue.
 
  1. Setup wireshark to capture HTTP/3 and HTTP/2 secrets (see below) and start capturing
  2. Choose backend and run it
- 3. Run traefik using the correct config_httpYOURVERSION.yaml
+ 3. Run caddy with correct Caddyfile
  4. Edit attacker.py to your desired content-length and data, then run it
  5. Observe traffic in wireshark
 
@@ -14,7 +14,7 @@ Credits to @lpisu98 for helping to investigate this issue.
  - php: `php -S localhost:8080`
  - flask: `python3 flask_server.py`
  - h2: `python3 h2_server.py`
- - traefik: `sudo ./traefik --entrypoints.web3.address=:443 --entrypoints.web3.http3=true --providers.file.filename=/PATH/TO/config_httpX.yaml --log.level=DEBUG`
+ - caddy: `sudo ./traefik run`
  - attacker: `python3 attacker.py`
 
 # Setup Wireshark
